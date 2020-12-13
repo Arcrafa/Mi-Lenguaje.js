@@ -1,5 +1,5 @@
 <template>
-  <v-app >
+  <v-app>
     <v-app-bar
         app
         color="primary"
@@ -24,10 +24,10 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-main >
+    <v-main>
       <v-row>
         <v-col
-        class="mb-3"
+            class="mb-3"
         >
           <AceEditor
               :fontSize="14"
@@ -45,8 +45,58 @@
           />
         </v-col>
         <v-col>
-            {{respuesta}}
+          <pre>
+            {{ respuesta }}
+          </pre>
+
+
         </v-col>
+      </v-row>
+      <v-row>
+        <h3>palabras reservadas que el lenguaje entiendo y funcionan</h3>
+
+        <pre>
+
+BreakToken      = "romper"       
+CaseToken       = "caso"        
+CatchToken      = "captura"       
+ClassToken      = "clase"       
+ConstToken      = "constante"       
+ContinueToken   = "continuar"    
+DebuggerToken   = "depurador"    
+DefaultToken    = "defecto"     
+DeleteToken     = "eliminar"      
+DoToken         = "hacer"          
+ElseToken       = "sino"        
+EnumToken       = "enumerado"        
+ExportToken     = "exportar"      
+ExtendsToken    = "extender"     
+FalseToken      = "falso"       
+FinallyToken    = "finalmente"     
+ForToken        = "para"         
+FunctionToken   = "funcion"    
+GetToken        = "obtener"         
+IfToken         = "si"          
+ImportToken     = "importar"      
+InstanceofToken = "instaciade"  
+InToken         = "en"          
+NewToken        = "nuevo"         
+NullToken       = "nulo"        
+ReturnToken     = "retornar"      
+SetToken        = "set"         
+SuperToken      = "super"       
+SwitchToken     = "ss"      
+ThisToken       = "este"        
+ThrowToken      = "lanzar"       
+TrueToken       = "verdadero"        
+TryToken        = "tratar"         
+TypeofToken     = "tipode"      
+VarToken        = "dato"         
+VoidToken       = "vacio"        
+WhileToken      = "mientras"       
+WithToken       = "con"        
+
+        </pre>
       </v-row>
     </v-main>
   </v-app>
@@ -55,7 +105,8 @@
 <script>
 import {Ace as AceEditor} from 'vue2-brace-editor';
 //var PEG = require("./javascript.js");
-import {parse} from './javascript'
+import {parse} from './milenguaje'
+
 export default {
   name: 'App',
 
@@ -65,7 +116,7 @@ export default {
   },
 
   data: () => ({
-    respuesta:''
+    respuesta: ''
   }),
   methods: {
     onChange(newValue) {
@@ -73,8 +124,8 @@ export default {
         //console.log(JSON.stringify(JSON.parse(parse(newValue))))
         this.respuesta = parse(newValue)
       } catch (error) {
-        console.error(error);
-        this.respuesta=error
+        //console.error(error);
+        this.respuesta = error
       }
       ;
 
